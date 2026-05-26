@@ -1,7 +1,6 @@
-# All Right Brain
+# RAG Assistant
 
-Internal AI knowledge base for All Right company.
-Concept implementation for the Automation Engineer position test assignment.
+Internal AI knowledge base for company.
 
 ## Documentation
 
@@ -9,7 +8,7 @@ Concept implementation for the Automation Engineer position test assignment.
 
 ## Overview
 
-All Right Brain collects knowledge from Google Docs, Confluence, Slack and GitHub,
+RAG Assistant collects knowledge from Google Docs, Confluence, Slack and GitHub,
 indexes it via embeddings and allows anyone to get an answer with a reference to the source
 via Slack bot, REST API or Web UI.
 
@@ -42,7 +41,7 @@ via Slack bot, REST API or Web UI.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/strixxjs/allright-brain
+git clone https://github.com/strixxjs/rag-assistant
 cd allright-brain
 
 # 2. Create and activate virtual environment
