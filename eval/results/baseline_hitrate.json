@@ -1,0 +1,17 @@
+{
+  "mode": "baseline",
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "rerank_model": null,
+  "collection": "rag_eval",
+  "n_eval": 30,
+  "n_skipped_hw": 0,
+  "hit_rate@1": 0.2667,
+  "hit_rate@3": 0.4333,
+  "hit_rate@5": 0.4333,
+  "hit_rate@10": 0.5,
+  "hit_rate@20": 0.7333,
+  "latency_p50_ms": 23.3,
+  "latency_p95_ms": 28.0,
+  "near_duplicate_misses_at_3": 0,
+  "total_misses_at_3": 17
+}

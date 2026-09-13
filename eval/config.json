@@ -1,0 +1,4 @@
+{
+  "ci_hitrate3_threshold": null,
+  "_note": "Set after Stage 4 baseline, ~5 points below measured hit@3. CI fixture threshold documented separately."
+}

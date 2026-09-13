@@ -1,0 +1,19 @@
+{
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "n_eval": 30,
+  "baseline": {
+    "hit_rate@1": 0.2667,
+    "hit_rate@3": 0.4333,
+    "hit_rate@5": 0.4333,
+    "latency_p50_ms": 23.3,
+    "latency_p95_ms": 28.0
+  },
+  "reranked": {
+    "hit_rate@1": 0.2333,
+    "hit_rate@3": 0.4,
+    "hit_rate@5": 0.6,
+    "latency_p50_ms": 424.2,
+    "latency_p95_ms": 590.0
+  }
+}

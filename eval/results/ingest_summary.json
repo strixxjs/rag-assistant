@@ -1,0 +1,9 @@
+{
+  "collection": "rag_eval",
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "vector_dim": 384,
+  "chunk_size": 500,
+  "chunk_overlap": 100,
+  "documents_ingested": 930,
+  "chunks_in_qdrant": 20724
+}

@@ -1,0 +1,199 @@
+{
+  "entries": [
+    {
+      "id": "76de5187-b08f-42a8-b3fd-9716743ac7ca",
+      "question": "My web browser is blocking API requests due to a CORS preflight failure even though I set the allowed origins wildcard to '*' when enabling credentials.",
+      "ground_truth_chunk_id": "57a2b539-cff4-4c06-84ce-da92bebd36c7",
+      "ground_truth_answer": "When allow_credentials is set to True, wildcards are forbidden and allowed origins, methods, and headers must be explicitly specified."
+    },
+    {
+      "id": "fb0cd08f-3972-4b1a-b1f9-d60610a300fe",
+      "question": "After deploying new application code, users are still receiving old cached data. How can I invalidate and increment the generation of cached entries without wiping the entire shared cache?",
+      "ground_truth_chunk_id": "64196a13-0f18-434c-a662-239a2205e596",
+      "ground_truth_answer": "Use cache versioning by passing a version integer or incrementing the version parameter in cache calls to namespace and isolate new cached entries."
+    },
+    {
+      "id": "3984d045-ff5c-42bf-a757-58f71cdfe5f1",
+      "question": "When clicking through pages of search results, users see the same records appearing across multiple pages while other items are skipped entirely.",
+      "ground_truth_chunk_id": "a9dbbdab-3e7d-4e2a-a37e-23117bf042c3",
+      "ground_truth_answer": "Ensure the underlying QuerySet has a deterministic ordering applied via order_by() so that SQL offset and limit slicing produces consistent, reproducible pages."
+    },
+    {
+      "id": "a540edc5-9118-4742-b0d8-db9ddf0da161",
+      "question": "My asynchronous web endpoint freezes the entire server process whenever a heavy synchronous file or compute task is executed inside the handler.",
+      "ground_truth_chunk_id": "935d0773-821c-40fc-bcdc-03909eaf7b9f",
+      "ground_truth_answer": "Declare the route handler with standard 'def' instead of 'async def' so FastAPI automatically executes it in an external threadpool worker without stalling the main event loop."
+    },
+    {
+      "id": "22c8f7c2-e0e7-4f65-869f-a4a63ff4b7df",
+      "question": "Running a database migration that adds a new non-nullable unique column fails in production because existing table records cannot satisfy the constraint.",
+      "ground_truth_chunk_id": "47d3572f-5c71-4512-94bd-73eedc0cd1eb",
+      "ground_truth_answer": "Add the column initially as nullable, populate the distinct values for existing records using a data migration, and then alter the column to be non-nullable."
+    },
+    {
+      "id": "c1f14017-4e58-4c54-aa55-ccbafbd3b528",
+      "question": "Users trying to submit large file attachments get an immediate HTTP 413 error from the application before the upload processing code is even reached.",
+      "ground_truth_chunk_id": "e209b749-8cf3-46d9-95b4-6de9ac098895",
+      "ground_truth_answer": "Increase the MAX_CONTENT_LENGTH configuration setting on the application to allow larger incoming request payloads before the server rejects them."
+    },
+    {
+      "id": "2fbdd7f5-8d5a-4b6d-b0f2-216fa5e4cf68",
+      "question": "My template loop is firing hundreds of identical database queries, one per item. How do I fetch the related objects in a single query?",
+      "ground_truth_chunk_id": "da121ce3-f20f-4499-94b8-1daf72bf250f",
+      "ground_truth_answer": "Use select_related() for foreign-key/one-to-one relations to perform a SQL JOIN in a single query, or prefetch_related() for many-to-many/many-to-one relations to batch queries in Python."
+    },
+    {
+      "id": "f05d4c84-86e0-4a24-bc1a-b85fda8de324",
+      "question": "My API endpoint opens a brand new database connection on every incoming request instead of reusing one — how do I share a single session per request?",
+      "ground_truth_chunk_id": "13ab1aba-c99f-4fc9-8810-217aff9a0b64",
+      "ground_truth_answer": "Declare a database session dependency function using yield and inject it into your path operations via Depends() to ensure clean lifecycle management per request."
+    },
+    {
+      "id": "75de8f10-6a76-4a3b-9d4a-f79f657a62e5",
+      "question": "How can I avoid the latency of opening a new TCP connection and SSL handshake on every outbound HTTP request in my microservice?",
+      "ground_truth_chunk_id": "2fc9d6e2-4c13-4821-b97c-dac57943e459",
+      "ground_truth_answer": "Instantiate a single httpx.Client or httpx.AsyncClient as a shared context manager or singleton to enable HTTP connection pooling and keep-alive."
+    },
+    {
+      "id": "ec7a835a-09c4-4a54-b966-a82dde34998f",
+      "question": "Why is my database transaction committing changes even when an error occurs during processing, and how do I ensure everything rolls back together?",
+      "ground_truth_chunk_id": "e8a05d81-cdd9-47c9-8a01-85d45d5521c9",
+      "ground_truth_answer": "Wrap the operations inside a transaction.atomic() context block, which guarantees that all database writes are rolled back if an unhandled exception is raised."
+    },
+    {
+      "id": "fb3592fb-5058-4582-b91a-bb173ecdf7d5",
+      "question": "Why does my response include a `Vary: Cookie` header when I use the CSRF token in my template, and how does this affect caching?",
+      "ground_truth_chunk_id": "0246b051-2ca1-4a03-925a-cae35b8f62bd",
+      "ground_truth_answer": "The middleware adds this header because the CSRF token is stored in a cookie, which requires the cache to differentiate responses based on cookie value."
+    },
+    {
+      "id": "83234ccb-91aa-4058-b77a-d8000d4366db",
+      "question": "Why does my script crash with a `StreamError` when I try to read the response body twice after using a streaming client?",
+      "ground_truth_chunk_id": "0540e180-db82-4ef8-b56c-d78da9a41fd0",
+      "ground_truth_answer": "The response stream has already been consumed or closed, preventing a second read. Read the stream only once or store the content."
+    },
+    {
+      "id": "4c4733e3-4617-40de-a1aa-a229d9b5badc",
+      "question": "I'm trying to deploy my Flask app on Windows without dealing with C compilation errors or complex setup steps, but I also need to handle large file uploads. Is there a pure Python server that runs natively on Windows but has a specific limitation regarding how it handles incoming data?",
+      "ground_truth_chunk_id": "008d155b-578c-4391-89c5-90a3120ede97",
+      "ground_truth_answer": "Waitress is a pure Python WSGI server that supports Windows directly and requires no compilation, but it does not support streaming requests because it always buffers full request data."
+    },
+    {
+      "id": "d11a4221-6532-4473-8cbf-d447efc3f706",
+      "question": "How can I remove database entries for content types that belong to apps I have already uninstalled?",
+      "ground_truth_chunk_id": "00aed485-a5cf-4bb9-9263-d1183e41ba85",
+      "ground_truth_answer": "Use the remove_stale_contenttypes option to delete stale content types from previously installed apps that have been removed from INSTALLED_APPS."
+    },
+    {
+      "id": "369987ef-877d-4218-ad03-e164b1865bdb",
+      "question": "How do I organize shared authentication logic across multiple levels of API route handlers without duplicating parameter definitions everywhere?",
+      "ground_truth_chunk_id": "2514fa0e-d4b6-423d-82bf-bffec863f5b3",
+      "ground_truth_answer": "Create sub-dependencies where each dependency function declares its own nested Depends() dependencies, allowing FastAPI to resolve the entire hierarchy automatically."
+    },
+    {
+      "id": "4eeb269d-3ee7-4cc1-831a-d53d98e62a7c",
+      "question": "Where does the web client submit login credentials when using bearer token authentication in FastAPI?",
+      "ground_truth_chunk_id": "b68e287c-9456-4a3f-adff-b8e24e3ced0e",
+      "ground_truth_answer": "The client sends a POST request with username and password to the URL specified in the tokenUrl parameter of OAuth2PasswordBearer to obtain a JWT token."
+    },
+    {
+      "id": "95b3dbfd-a8ba-4516-a8d3-4a87d365dbb9",
+      "question": "I have a middleware class that supports both sync and async modes, but I need to know at runtime whether the current request is being handled asynchronously. How can I check this inside the middleware?",
+      "ground_truth_chunk_id": "00f6cf64-1287-4844-b4d8-fae078471e2c",
+      "ground_truth_answer": "Check if inspect.iscoroutinefunction returns True for the get_response object passed to your middleware."
+    },
+    {
+      "id": "797a2076-f5c7-47e9-8dcc-5246fffad376",
+      "question": "My application runs out of memory when rendering a very large HTML page, so how can I send the content to the client in smaller chunks instead of building the entire string in memory?",
+      "ground_truth_chunk_id": "04b32689-6b16-4901-97cf-d5859f03b2e7",
+      "ground_truth_answer": "Use stream_template or stream_template_string functions, which return an iterator to render the template piece by piece."
+    },
+    {
+      "id": "1f1eb07e-07f2-4fc5-8ab2-e4c017ca5292",
+      "question": "I need to manage multiple related items linked via a GenericForeignKey within a single Django form; which specific factory function should I use to create the appropriate formset?",
+      "ground_truth_chunk_id": "05792c56-2e05-40d3-b164-781b3be8867a",
+      "ground_truth_answer": "Use generic_inlineformset_factory from django.contrib.contenttypes.forms to return a GenericInlineFormSet."
+    },
+    {
+      "id": "21a752dd-d114-4a91-8c7d-60c1a579c8f5",
+      "question": "Why do I see race conditions when incrementing a counter in my cache, and how can I ensure the operation is thread-safe?",
+      "ground_truth_chunk_id": "059890ce-ebe6-41f7-9a86-63e29721fb14",
+      "ground_truth_answer": "Increment and decrement operations are only atomic if the cache backend natively supports them (e.g. Memcached); otherwise, they operate via non-atomic get-and-set."
+    },
+    {
+      "id": "7f14e710-8fd0-43a0-8849-972a563045a6",
+      "question": "I'm planning to update my Django project to a newer version for the first time; what foundational documentation should I review before starting the migration?",
+      "ground_truth_chunk_id": "d1df26c4-46ac-4554-a553-121a744439d1",
+      "ground_truth_answer": "Review the release notes and upgrade guide for your target version, paying attention to deprecation timelines and backwards-incompatible changes."
+    },
+    {
+      "id": "eb875c80-462f-4e7d-973d-7f63fc5364a2",
+      "question": "When I use a ModelForm, which specific form field types are automatically generated for relationship fields that allow only one selection versus those that allow multiple selections?",
+      "ground_truth_chunk_id": "06831bf6-e5d5-4b21-8f95-bb3f2c4138a5",
+      "ground_truth_answer": "A single-selection relationship generates a ModelChoiceField, while a multiple-selection relationship generates a ModelMultipleChoiceField."
+    },
+    {
+      "id": "b2f0d474-7457-4eb3-b47a-b632a157dc19",
+      "question": "Concurrent background workers updating user credit balances keep overwriting each other's increments. How do I apply relative database-level increments safely?",
+      "ground_truth_chunk_id": "e044689d-df48-45e0-b977-516310ef4363",
+      "ground_truth_answer": "Use Django F() expressions in your update query to instruct the database to increment the field value directly in SQL rather than computing the value in Python."
+    },
+    {
+      "id": "9e1c1367-4332-4ff5-9555-81c8ad549fbe",
+      "question": "I need to add password strength validation and limit brute-force login attempts, but I can't find these options in my project settings. Where do I look for these features?",
+      "ground_truth_chunk_id": "1d02ae08-e935-4061-9702-5e5562041ea1",
+      "ground_truth_answer": "Password validators are configured in AUTH_PASSWORD_VALIDATORS, whereas brute-force rate-limiting is typically added via middleware or third-party packages."
+    },
+    {
+      "id": "67e2c758-3934-40be-8655-e3d36b2a9f0c",
+      "question": "How can I execute just the spatial database test suite instead of the entire project test suite?",
+      "ground_truth_chunk_id": "40f0ea1c-5b98-40b2-bb30-3b233356c259",
+      "ground_truth_answer": "Run ./runtests.py with the gis_tests target and appropriate spatial settings, e.g. ./runtests.py --settings=postgis gis_tests."
+    },
+    {
+      "id": "6892dbdd-10de-4f6a-9930-1625f2e7c2b6",
+      "question": "I am migrating a legacy Django application to a fully asynchronous architecture. Besides the general requirement that database adapters must be accessed in the same thread they were created in, which specific legacy database backend module and which deprecated HTTP request method must I remove from my codebase to ensure compatibility with modern Django versions?",
+      "ground_truth_chunk_id": [
+        "039e2fd7-b94c-41db-a819-c8572121d04c",
+        "04969602-9dac-4d31-b03c-6cbc5c0717bc"
+      ],
+      "ground_truth_answer": "Remove the legacy postgresql_psycopg2 module and HttpRequest.xreadlines(), switching to modern async-safe ORM adaptors and standard stream interfaces."
+    },
+    {
+      "id": "e963daa1-5fc6-402b-bd76-9c01641c3e78",
+      "question": "When building a custom transport for an ASGI application that requires handling raw network streams for protocol upgrades, what is the recommended approach for managing the application's lifecycle events, given that the HTTP client library does not natively trigger them?",
+      "ground_truth_chunk_id": [
+        "032324b2-4f14-40ca-a57e-968365a2f1ed",
+        "00816e48-a41a-48c1-a265-1bbeb923ab8e"
+      ],
+      "ground_truth_answer": "Use LifespanManager from asgi-lifespan with AsyncClient to explicitly manage startup and shutdown events, as custom transports accessing network_stream do not trigger ASGI lifespan hooks."
+    },
+    {
+      "id": "14bf46a7-2b19-4d42-99d4-e4d1552c63d0",
+      "question": "I am building a navigation bar in a Jinja2 template that needs to link to a specific view within the same modular component. How do I construct the URL reference to ensure it resolves correctly relative to the current module, and what specific function provides this capability within the template context?",
+      "ground_truth_chunk_id": [
+        "01a4bd7b-cc41-4a46-b69e-f85bb0538790",
+        "040dd0cb-7fe0-4a64-bf04-9da87ed4db63"
+      ],
+      "ground_truth_answer": "Use url_for with a relative prefix dot (e.g. url_for('.endpoint_name')) in template templates to resolve endpoints belonging to the current blueprint."
+    },
+    {
+      "id": "e03ed00e-9638-43d1-9710-4cb9d4e2902b",
+      "question": "I am preparing a production deployment using a specific package manager like uv and need to configure my application's environment variables. How should I define the dependency version constraint to allow for patch updates within the 0.112.x series, and what specific caching strategy should I apply to my configuration loading function to prevent redundant file reads during high-traffic requests?",
+      "ground_truth_chunk_id": [
+        "03a62b8a-2511-467c-8d19-b3a08e96ac4a",
+        "0258b9d1-d37d-4001-bc1d-5658922f906f"
+      ],
+      "ground_truth_answer": "Pin version '>=0.112.0,<0.113.0' to permit non-breaking patch updates, and wrap the settings loader with '@lru_cache' so environment variables are parsed once and reused."
+    },
+    {
+      "id": "d6edb407-d121-490d-a892-486321dda3cc",
+      "question": "When deploying an application behind a reverse proxy that terminates TLS, how do I configure both settings and headers so the app trusts forwarded protocol headers and redirects HTTP requests to HTTPS safely?",
+      "ground_truth_chunk_id": [
+        "081431a6-15d4-426b-942d-9382bd35557f",
+        "1709a1b8-9ec1-4fae-9f45-30a6854b09b6"
+      ],
+      "ground_truth_answer": "Set SECURE_PROXY_SSL_HEADER to ('HTTP_X_FORWARDED_PROTO', 'https') to trust proxy SSL indicators, and set SECURE_SSL_REDIRECT to True to redirect non-HTTPS traffic to HTTPS."
+    }
+  ]
+}
