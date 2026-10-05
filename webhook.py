@@ -27,8 +27,12 @@ def extract_text(doc: dict) -> str:
             continue
         for run in paragraph.get("elements", []):
             text_run = run.get("textRun")
-            if text_run:
-                text_parts.append(text_run.get("content", ""))
+            if not text_run:
+                continue
+            content = text_run.get("content", "")
+            if not content.strip():
+                continue
+            text_parts.append(content.rstrip("\n"))
     return "".join(text_parts)
 
 
